@@ -41,7 +41,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-            <uses-feature android:name="android.hardware.location.gps" />
+            <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+            <uses-feature android:name="android.hardware.location.gps" android:required="false" />
         </config-file>
 
         <config-file target="res/xml/config.xml" parent="/*">
@@ -81,6 +82,17 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <js-module src="www/geolocation.js" name="geolocation">
             <clobbers target="navigator.geolocation" />
         </js-module>
+      
+        <preference name="GEOLOCATION_USAGE_DESCRIPTION_IOS" default="This app needs your location." />
+        <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
+            <string>$GEOLOCATION_USAGE_DESCRIPTION_IOS</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
+            <string>$GEOLOCATION_USAGE_DESCRIPTION_IOS</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="NSLocationAlwaysAndWhenInUseUsageDescription">
+            <string>$GEOLOCATION_USAGE_DESCRIPTION_IOS</string>
+        </config-file>
 
         <config-file target="config.xml" parent="/*">
                 <feature name="Geolocation">
