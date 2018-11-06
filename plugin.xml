@@ -87,7 +87,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             <clobbers target="navigator.geolocation" />
         </js-module>
       
-        <preference name="GEOLOCATION_USAGE_DESCRIPTION_IOS" default="This app needs access your location." />
+        <preference name="GEOLOCATION_USAGE_DESCRIPTION_IOS" default="This app needs access to your location." />
         <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
             <string>$GEOLOCATION_USAGE_DESCRIPTION_IOS</string>
         </config-file>
